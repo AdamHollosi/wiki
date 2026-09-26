@@ -232,6 +232,8 @@ function showLinkPopup({ editor: editorInstance, href, isNew, rect }) {
 			return h(LinkPopup, {
 				href: href || '',
 				isNew,
+				searchEndpoint:
+					document.documentElement.dataset.wikiLinkSearchEndpoint || '',
 				onSave: (newHref) => {
 					editorInstance.chain().focus().setLink({ href: newHref }).run();
 					hideLinkPopup();
